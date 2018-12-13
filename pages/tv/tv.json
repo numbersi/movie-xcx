@@ -1,0 +1,9 @@
+{
+
+    "usingComponents": {
+      "movie": "/components/movie/index"
+    },
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "电视剧"
+  
+}

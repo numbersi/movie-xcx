@@ -1,0 +1,75 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.1",
+	"appid": "wxa3e468cc9a38d354",
+	"projectname": "movieXcx",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 4,
+			"list": [
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"query": "href=/m/gqLlYUL2QHH5Tx.html"
+				},
+				{
+					"id": -1,
+					"name": "tv",
+					"pathName": "pages/tv/tv",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "综艺",
+					"pathName": "pages/zongyi/zongyi",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "tvdetail",
+					"pathName": "pages/detail/detail",
+					"query": "href=/tv/PrZpbX7lRW0tOH.html"
+				},
+				{
+					"id": -1,
+					"name": "zydetail",
+					"pathName": "pages/detail/detail",
+					"query": "href=/va/ZMQlbHNy7Jc8FT.html"
+				}
+			]
+		}
+	}
+}

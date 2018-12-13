@@ -1,0 +1,4 @@
+<!--pages/zongyi/zongyi.wxml-->
+<view>
+    <movie list_movie='{{list_movie}}'/>
+</view>

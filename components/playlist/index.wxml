@@ -1,0 +1,7 @@
+<view class='main'>
+  <view class='list'>
+   <block   wx:for="{{play_list}}">
+    <button  class='item' bindtap="onTap" >{{item.num}}</button>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+
+<i-tabs current="{{ current_scroll }}" scroll bindchange="handleChangeScroll">
+  <block wx:for="{{month_page_list.month_list}}" wx:key="index" wx:for-item="month" wx:for-index="index">
+    <i-tab key="{{index}}" title="{{month}}"></i-tab>
+  </block>
+
+</i-tabs>
+
+<view>
+         <i-col i-class="page-col" span="12" wx:for="{{month_page}}" wx:key='index' wx:item="movie" >
+                  <i-card i-class="movie" title="{{item.hint}}">
+                 <view slot="content">
+                           <image mode='widthFix' src='{{item.img}}'></image>
+                 </view>
+                 <view slot="footer"> {{item.title}}</view>
+                  </i-card>
+         </i-col>
+</view>

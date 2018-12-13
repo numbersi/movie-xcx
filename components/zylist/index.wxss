@@ -1,0 +1,9 @@
+/* components/zylist/index.wxss */
+
+image{
+    
+    width: 100%;
+}
+.page-col{
+  margin-bottom: 20rpx;
+}

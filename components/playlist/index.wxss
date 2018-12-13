@@ -1,0 +1,15 @@
+/* components/playlist/index.wxss */
+.main{
+  display: flex;
+  }
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start 
+}
+.item{
+  width:120rpx;
+  border: solid rgba(102, 60, 60,0.1) 1rpx;
+  margin-bottom: 20 rpx;
+}
+

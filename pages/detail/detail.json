@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "i-panel": "../../dist/panel/index",
+      "i-spin": "../../dist/spin/index",
+      "i-icon": "../../dist/icon/index",
+      "playlist": "/components/playlist/index",
+      "zylist": "/components/zylist/index"
+    }
+}
