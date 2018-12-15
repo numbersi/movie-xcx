@@ -1,5 +1,6 @@
-import { HTTP } from '../../utils/http.js'
-let http = new HTTP()
+import { Movie } from '../../utils/m.js'
+let movie = new Movie({ category: 'dianshi' })
+
 // pages/tv/tv.js
 Page({
 
@@ -8,28 +9,19 @@ Page({
    */
   data: {
     list_movie: [],
-    pageno: 1
+    pageno: 1,
+    md5_html:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     this.getTVdata(1)
+     this.getTVdata()
   },
-  getTVdata: function (pageno){
-    http.request({
-      url: 'api/getListData',
-      data:{
-        category: 'dianshi',
-        pageno: pageno
-      },
-      success:(res)=>{
-        this.setData({
-          list_movie: this.data.list_movie.concat(res.data)
-        })
-      }
-    })
+  getTVdata: function (pageno) {
+    movie.getListData(this, pageno)
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,9 +1,12 @@
 /* components/zylist/index.wxss */
 
-image{
-    
-    width: 100%;
+image {
+  width: 100%;
 }
-.page-col{
+
+.page-col {
   margin-bottom: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

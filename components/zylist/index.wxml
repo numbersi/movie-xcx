@@ -8,11 +8,11 @@
 
 <view>
          <i-col i-class="page-col" span="12" wx:for="{{month_page}}" wx:key='index' wx:item="movie" >
-                  <i-card i-class="movie" title="{{item.hint}}">
+                  <i-card i-class="movie" title="{{item.hint}}"  bindtap="chooseItem" data-Item="{{item}}">
                  <view slot="content">
                            <image mode='widthFix' src='{{item.img}}'></image>
                  </view>
-                 <view slot="footer"> {{item.title}}</view>
+                 <view slot="footer" class='title'> {{item.title}}</view>
                   </i-card>
          </i-col>
 </view>

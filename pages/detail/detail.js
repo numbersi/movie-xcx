@@ -27,8 +27,8 @@ Page({
 
   getDetialData:function (href) {
 
-    wx.request({
-      url: 'http://192.168.1.10:4444/api/getDetialData?href=' + href,
+    http.request({
+      url: 'api/getDetialData?href=' + href,
       success:(res)=>{
         this.setData(res.data)
         this.getPlayUrlTruthValue(res.data.playUrl)
@@ -41,8 +41,8 @@ Page({
 
   getPlayUrlTruthValue(playUrl){
     if(playUrl){
-      wx.request({
-        url: 'http://192.168.1.10:4444/search/getPlayUrl',
+      http.request({
+        url: 'search/getPlayUrl',
         data: {
           url: playUrl
         },
@@ -106,10 +106,19 @@ Page({
   onTap:function(e){
     const index = e.currentTarget.dataset.index
     const playItem = this.data.play_list[index]
+    if (this.data.play_url){this.setData({
+      play_url:null,
+      num: playItem.num
+    })}
     this.getPlayUrlTruthValue(playItem.playUrl)
 
   },
   binderror:function(e){
     console.log(e)
+  },
+  bindchoose: function ({ detail}){
+    console.log(detail)
+    const { href} = detail.item
+    this.getPlayUrlTruthValue(href)
   }
 })

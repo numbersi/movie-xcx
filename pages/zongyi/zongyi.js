@@ -1,5 +1,8 @@
-import { HTTP } from '../../utils/http.js'
-let http = new HTTP()
+const app = getApp()
+
+import { Movie } from '../../utils/m.js'
+let movie = new Movie({ category: 'zongyi' })
+
 // pages/tv/tv.js
 Page({
 
@@ -18,18 +21,7 @@ Page({
     this.getZydata(1)
   },
   getZydata: function (pageno) {
-    http.request({
-      url: 'api/getListData',
-      data: {
-        category: 'zongyi',
-        pageno: pageno
-      },
-      success: (res) => {
-        this.setData({
-          list_movie: this.data.list_movie.concat(res.data)
-        })
-      }
-    })
+    movie.getListData(this, pageno, 'zongyi')
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

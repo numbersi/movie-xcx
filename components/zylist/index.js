@@ -32,6 +32,13 @@ Component({
         current_scroll: detail.key,
         month_page: this.properties.month_page_list.month_pages[detail.key]
       });
+    },
+    chooseItem: function (e){
+      const { item } =e. currentTarget.dataset
+      this.triggerEvent('choose', {
+        item
+      }, { bubbles: true, composed: true  })
+
     }
   }
 })

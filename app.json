@@ -1,12 +1,27 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/dy/dy",
     "pages/detail/detail",
     "pages/tv/tv",
     "pages/zongyi/zongyi"
   ],
+  "tabBar": {
+
+      "list": [
+        {
+          "pagePath": "pages/dy/dy",
+          "text": "电影"
+        },
+        {
+          "pagePath": "pages/tv/tv",
+          "text": "电视剧"
+        },
+        {
+          "pagePath": "pages/zongyi/zongyi",
+          "text": "综艺"
+        }
+      ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

@@ -1,2 +1,5 @@
 <!--pages/dy/dy.wxml-->
-<text>pages/dy/dy.wxml</text>
+<view class="index">
+  
+    <movie list_movie='{{list_movie}}'/>
+</view>

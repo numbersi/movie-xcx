@@ -2,8 +2,8 @@
     <i-col i-class="color-col" span="12" wx:for="{{list_movie}}" wx:key='index' wx:item="movie" >
         <i-card i-class="movie">
             <view slot="content" class='movie'  bindtap='toDetail' data-href='{{item.href}}' >          
-            <view class='movie-top'>
-                    <image src='{{item.img}}' lazy-load="true" />
+            <view class='movie-top' >
+                    <image src='{{item.img}}'   lazy-load="true" />
                     <text class='note'>{{item.hint}}</text>
                     <view class='title'>
                       {{item.title}}

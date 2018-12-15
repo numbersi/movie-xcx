@@ -1,6 +1,6 @@
 <!--pages/detail/detail.wxml-->
 
-<i-panel title="{{title}}">
+<i-panel title="{{title}} ">
 <view > 
 <video wx:if="{{play_url}}" src='{{play_url}}'   binderror="binderror"></video>
       <view wx:else  class='loading'>
@@ -8,6 +8,10 @@
       </view>
 </view>
 </i-panel>
+
+<i-panel wx:if="{{num}}" title="正在播放 第{{num}} ">
+</i-panel>
+
 <i-panel title="{{category}}播放列表:">
     <view class='list'>
    <block   wx:for="{{play_list}}"  wx:key="index"  wx:for-index="idx">
@@ -15,7 +19,7 @@
     </block>
   </view>
   <view wx:if="{{month_page_list}}"  >
-  <zylist month_page_list="{{month_page_list}}"/>
+  <zylist bindchoose="bindchoose" month_page_list="{{month_page_list}}" />
   </view>
 </i-panel>
 <i-panel title="简介:" >
