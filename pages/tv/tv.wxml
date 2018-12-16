@@ -1,4 +1,3 @@
 <view class="index">
-  
     <movie list_movie='{{list_movie}}'/>
 </view>

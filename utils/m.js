@@ -72,7 +72,7 @@ class Movie {
         res.data['pageno'] = paneno
         res.data['list_movie'] = list_movie
         wx.getStorage({
-          key: '',
+          key: this.category,
           success: ({data}) =>{
             console.log(this.storageData)
             res.data['md5_html'] = data.md5_html

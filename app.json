@@ -6,21 +6,20 @@
     "pages/zongyi/zongyi"
   ],
   "tabBar": {
-
-      "list": [
-        {
-          "pagePath": "pages/dy/dy",
-          "text": "电影"
-        },
-        {
-          "pagePath": "pages/tv/tv",
-          "text": "电视剧"
-        },
-        {
-          "pagePath": "pages/zongyi/zongyi",
-          "text": "综艺"
-        }
-      ]
+    "list": [
+      {
+        "pagePath": "pages/dy/dy",
+        "text": "电影"
+      },
+      {
+        "pagePath": "pages/tv/tv",
+        "text": "电视剧"
+      },
+      {
+        "pagePath": "pages/zongyi/zongyi",
+        "text": "综艺"
+      }
+    ]
   },
   "window": {
     "backgroundTextStyle": "light",
