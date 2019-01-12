@@ -4,6 +4,8 @@
       "i-spin": "../../dist/spin/index",
       "i-icon": "../../dist/icon/index",
       "playlist": "/components/playlist/index",
-      "zylist": "/components/zylist/index"
+      "zylist": "/components/zylist/index",
+      "i-tag": "../../dist/tag/index",
+      "i-load-more": "../../dist/load-more/index"
     }
 }

@@ -1,0 +1,21 @@
+<i-panel title="搜索">
+    <i-input value="{{ wd }}"  bind:blur="blur"	  autofocus placeholder="名字" maxlength="50" />
+</i-panel>
+
+<i-panel title="资源" />
+<i-tabs current="{{ current_scroll }}" scroll bindchange="handleChangeScroll">
+  <block wx:for="{{sources}}" wx:key="index" wx:for-item="month" wx:for-index="index">
+    <i-tab key="{{index}}" title="{{month}}"></i-tab>
+  </block>
+</i-tabs>
+
+
+
+<i-cell-group>
+  <block wx:for="{{video}}" wx:key='index'>
+    <i-cell title="{{item.name}}" url="/pages/search/search-detail/index?source={{source}}&ids={{item.id}}"
+    is-link></i-cell>
+  </block>
+    <!-- <i-cell title="跳转到首页" is-link url="/pages/dashboard/index"></i-cell> -->
+
+</i-cell-group>

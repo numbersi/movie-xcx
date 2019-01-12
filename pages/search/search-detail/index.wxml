@@ -1,0 +1,20 @@
+<!--pages/search/search-detail/index.wxml-->
+<text>{{name}}</text>
+<image src='{{pic}}'></image>
+<i-panel wx:if="{{actor[0].length}}" title="演员" />
+<i-tag wx:for="{{actor}}" wx:key="{{index}}" class="i-tags" type="border" color="blue">
+  {{item}}
+</i-tag>
+
+<view>
+<text class="desc">{{des}}</text>
+</view>
+
+<view>
+
+<block wx:for="video_list">
+ <button>ss
+ </button>
+</block>
+
+</view>

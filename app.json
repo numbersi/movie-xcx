@@ -3,21 +3,30 @@
     "pages/dy/dy",
     "pages/detail/detail",
     "pages/tv/tv",
-    "pages/zongyi/zongyi"
+    "pages/zongyi/zongyi",
+    "pages/test/test",
+    "pages/search/search",
+    "pages/search/search-detail/index"
   ],
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/dy/dy",
-        "text": "电影"
+        "text": "电影",
+        "iconPath": "/images/tabs/dy.png",
+        "selectedIconPath": "/images/tabs/dy_b.png"
       },
       {
         "pagePath": "pages/tv/tv",
-        "text": "电视剧"
+        "text": "电视剧",
+        "iconPath": "/images/tabs/tv.png",
+        "selectedIconPath": "/images/tabs/tv_b.png"
       },
       {
         "pagePath": "pages/zongyi/zongyi",
-        "text": "综艺"
+        "text": "综艺",
+        "iconPath": "/images/tabs/zy.png",
+        "selectedIconPath": "/images/tabs/zy_b.png"
       }
     ]
   },

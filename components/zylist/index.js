@@ -4,7 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    month_page_list:Object
+    month_page_list:Object,
+    spinShow:{
+      type: Boolean,
+      value: false
+    }
   },
 
   /**

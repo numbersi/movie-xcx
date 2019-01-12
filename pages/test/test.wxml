@@ -1,0 +1,2 @@
+    <zylist bindchoose="bindchoose" month_page_list="{{month_page_list}}" />
+

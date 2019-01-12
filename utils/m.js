@@ -3,53 +3,59 @@ import {
 } from './http.js'
 let http = new HTTP()
 class Movie {
-  category =null
-  constructor(options){
-    this.category = options.category
-    this.storageData = wx.getStorageSync(options.category),
-    this.md5_html =null
+  category = null
+  constructor({
+    category,
+    href
+  }) {
+    if (category) {
+      this.category = category
+      this.storageDataList = wx.getStorageSync(category)
+    } else if (href) {
+      this.href = href
+      this.storageDataDetail = wx.getStorageSync(href)
+    }
+    this.md5_html = null,
+    this.updateTime = 0;
   }
-  getListData(that, pageno) {
-    // wx.getStorage({
-    //   key: this.category,
-    //   success: ({data}) => {
-    //     console.log(data)
-    //     const md5_html = data.md5_html
-    //    if(data){
-    //      if (pageno == 1) {
-    //        that.setData(data)
-    //        this.checkMd5Html(,md5_html)
-    //        return
-    //      }
-    //    }
-    //     this.getListDataFormUrl(that, pageno, md5_html)
-    //   },
-    //   fail: () => {
-    //     this.getListDataFormUrl(that, pageno)
-    //   }
-    // })
-    if (this.storageData){
+  /**
+   * 获取 详细信息
+   */
+  getDetailData(){
+    if (this.storageDataDetail){
+      that.setData(this.storageDataList)
+      return
+    }
+    this.getDetailFormUrl()
+  }
+  getDetailFormUrl(){}
+  /**
+   * 获取 列表
+   */
+  getListData(that, pageno=1) {
+    this.page = that
+    if (this.storageDataList) {
       if (pageno == 1) {
-        that.setData(this.storageData)
-          //  this.checkMd5Html(md5_html)
-           return
-         }
-      this.getListDataFormUrl(that, pageno)
-    }else{
-       this.getListDataFormUrl(that, pageno)
+        this.checkMd5Html()
+        return
+      }
+      this.getListDataFormUrl( pageno)
+    } else {
+      this.getListDataFormUrl( pageno)
     }
   }
-  getListDataFormUrl(that, pageno, category, md5_html="") {
+  getListDataFormUrl(pageno, category, md5_html = "") {
     http.request({
       url: 'api/getListData',
       data: {
-        category:this.category,
+        category: this.category,
         pageno
       },
-      success: this.setListData(that, pageno,)
+      success: this.setListData( pageno, )
     })
   }
-  setStorageData( data) {
+  setStorageData(data) {
+
     console.log(data)
     wx.setStorage({
       key: this.category,
@@ -57,24 +63,26 @@ class Movie {
     })
   }
 
-  setListData(that, paneno) {
+  setListData( paneno) {
     if (paneno == 1) {
       return (res) => {
         res.data['pageno'] = 1
-        this.setStorageData( res.data)
-        this.md5_html= res.data.md5_html
-        that.setData(res.data)
+        this.setStorageData(res.data)
+        this.md5_html = res.data.md5_html
+        this.page.setData(res.data)
       }
     }
     return (res) => {
-      let list_movie =that.data.list_movie.concat(res.data.list_movie)
-      if (paneno<=4){
+      let list_movie = this.page.data.list_movie.concat(res.data.list_movie)
+      if (paneno <= 40) {
         res.data['pageno'] = paneno
         res.data['list_movie'] = list_movie
         wx.getStorage({
           key: this.category,
-          success: ({data}) =>{
-            console.log(this.storageData)
+          success: ({
+            data
+          }) => {
+            console.log(this.storageDataList)
             res.data['md5_html'] = data.md5_html
             this.setStorageData(res.data)
           },
@@ -82,32 +90,47 @@ class Movie {
 
 
       }
-      that.setData({
+      this.page.setData({
         list_movie,
       })
     }
   }
+  /**
+   * 检测 更新
+   */
+  checkMd5Html() {
+    let time = new Date().getTime()
+    let timeC = (time - this.updateTime) / 1000
+    console.log(timeC)
+    if (timeC<180){
+      return
+    }
+    this.updateTime = time
+    http.request({
+      url: "api/checkMd5Html",
+      data: {
+        category: this.category,
+        md5_html: wx.getStorageSync(this.category).md5_html
+      },
+      success: ({
+        data
+      }) => {
+        if (data.flag) {
+          console.log('没有更新')
+          this.page.setData(this.storageDataList)
+
+        }else{
+          this.page.setData(
+            data.data
+          )
+          this.setStorageData(data.data)
+
+        }
+      }
+    })
+  }
 
 
-/**
- * 检测 更新
- */
-  checkMd5Html(category,md5_html){
-
-   http.request({
-     url:"api/checkMd5Html",
-     data:{
-       md5_html,
-       category
-     },
-     success:({data})=>{
-       console.log(data)
-       if(data.flag){
-         console.log('没有更新')
-       }
-     }
-   })
- }
 }
 
 

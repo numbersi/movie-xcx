@@ -1,12 +1,34 @@
-/* components/zylist/index.wxss */
-
-image {
+image{
   width: 100%;
 }
+.movie{
+  position: relative;
+    font-size: 20rpx;
+      border-radius: 30rpx;
+  margin: 5%;
+}
+.title{
+ position: absolute;
+  bottom: 10%;
+  left: 0rpx;
+  width: 100%;
+  height: 25rpx;
+  text-align: center;
+  line-height: 25rpx;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.hint{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color:white;
+  background-color: #f70;
+    border-radius: 30rpx;
 
-.page-col {
-  margin-bottom: 20rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  }
+  
+.list{
+  background-color: #f70;
+  position: relative
 }

@@ -1,34 +1,56 @@
-<!--pages/detail/detail.wxml-->
-
 <i-panel title="{{title}} ">
-<view > 
-<video wx:if="{{play_url}}" src='{{play_url}}'   binderror="binderror"></video>
-      <view wx:else  class='loading'>
-        <i-spin custom>电影加载中...</i-spin>
-      </view>
-</view>
+  <view class="playbox">
+    <video id="myVideo" wx:if="{{play_url}}" src='{{play_url}}' binderror="binderror"
+    binderror="videoError" 
+    bindwaiting="bindwaiting"
+    autoplay
+    ></video>
+    <view wx:else class='loading'>
+      <image src='{{img}}' mode='aspectFit'></image>
+    </view>
+  </view>
 </i-panel>
 
 <i-panel wx:if="{{num}}" title="正在播放 第{{num}} ">
 </i-panel>
+<i-panel wx:if="{{list_actor}}" title="演员" />
+<i-tag wx:for="{{list_actor}}" wx:key="{{index}}" class="i-tags" type="border" color="blue">
+  {{item.name}}
+</i-tag>
+<i-panel wx:if="{{list_cat}}" title="类型" />
+<i-tag wx:for="{{list_cat}}" wx:key="{{index}}" class="i-tags" type="border" color="red">
+  {{item.title}}
+</i-tag>
+<i-panel title="简介:">
 
-<i-panel title="{{category}}播放列表:">
-    <view class='list'>
-   <block   wx:for="{{play_list}}"  wx:key="index"  wx:for-index="idx">
-    <button  class='item' bindtap="onTap"  data-index="{{idx}}">{{item.num}}</button>
-    </block>
-  </view>
-  <view wx:if="{{month_page_list}}"  >
-  <zylist bindchoose="bindchoose" month_page_list="{{month_page_list}}" />
-  </view>
 </i-panel>
-<i-panel title="简介:" >
 <text class="desc">{{desc}}</text>
-</i-panel>
+<i-panel wx:if="{{list_play||month_page_list}}" title="播放列表:">
 
-<view style="flex-direction: row">
-<i-panel title="免责声明：" >
-<icon type='warn' />
-<rich-text>本网站所有内容都是靠程序在互联网上自动搜集而来，仅供测试和学习交流。若侵犯了您的权益，请发邮件通知站长。</rich-text>
-</i-panel>  
+</i-panel>
+<view class='list'>
+  
+  <block wx:for="{{list_play}}" wx:key="{{index}}">
+    <button class='item' bindtap="onTap" data-index="{{index}}">{{item.num}}</button>
+  </block>
+
+  <view class='zylist'>
+     <zylist  wx:if="{{month_page_list}}" bindchoose="bindchoose" month_page_list="{{month_page_list}}"  />
+  </view>
+
+  <i-spin size="large" fix wx:if="{{spinShow}}"></i-spin>
+
 </view>
+ 
+ 
+
+<i-load-more tip="本网站所有内容都是靠程序在互联网上自动搜集而来，仅供测试和学习交流。若侵犯了您的权益，请发邮件通知站长" loading="{{ false }}" />
+
+
+<!-- <view style="flex-direction: row">
+  <i-panel title="免责声明：">
+
+  </i-panel>
+      <icon type='warn' />
+    <rich-text>本网站所有内容都是靠程序在互联网上自动搜集而来，仅供测试和学习交流。若侵犯了您的权益，请发邮件通知站长。</rich-text>
+</view> -->

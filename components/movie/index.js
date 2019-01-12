@@ -14,7 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    index: 0,
   },
 
   /**
@@ -30,7 +30,7 @@ Component({
     },
     getCurrentTar: function (e,sign){
       return e.currentTarget.dataset[sign]
-    }
-  }
+    }, 
 
+  },
 })

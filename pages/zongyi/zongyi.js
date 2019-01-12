@@ -18,7 +18,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getZydata(1)
   },
   getZydata: function (pageno) {
     movie.getListData(this, pageno, 'zongyi')
@@ -34,7 +33,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.hideLoading()
+    this.getZydata(1)
   },
 
   /**

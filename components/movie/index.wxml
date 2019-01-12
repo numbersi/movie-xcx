@@ -3,7 +3,7 @@
         <i-card i-class="movie">
             <view slot="content" class='movie'  bindtap='toDetail' data-href='{{item.href}}' >          
             <view class='movie-top' >
-                    <image src='{{item.img}}'   lazy-load="true" />
+                    <image src='{{item.img}}' lazy-load   />
                     <text class='note'>{{item.hint}}</text>
                     <view class='title'>
                       {{item.title}}
@@ -18,4 +18,11 @@
           </view>
         </i-card>
     </i-col>
+
+ <i-load-more />
+
+
+
+
+
 </i-row>

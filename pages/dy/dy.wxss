@@ -1,9 +1,5 @@
 /* pages/dy/dy.wxss */
-.index{
-  display: flex;
-  flex-direction: row;
-    justify-content:flex-start;
-
-  flex-wrap: wrap;
-
+.index{  width: 100%;
+  height: 100%;
 }
+

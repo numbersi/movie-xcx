@@ -1,27 +1,35 @@
-import { Movie } from '../../utils/m.js'
-let movie = new Movie({ category: 'dianshi' })
-
-// pages/tv/tv.js
+// pages/search/search-detail/index.js
+import { HTTP } from '../../../utils/http.js'
+const http = new HTTP()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list_movie: [],
-    pageno: 1,
-    md5_html:null
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    this.getData(options)
   },
-  getTVdata: function (pageno) {
-    movie.getListData(this, pageno)
+  getData(data){
+    http.request({
+      url:'api/video',
+      data,
+      success:({data})=>{
+        this.setData(this.formatData(data))
+      }
+    })
   },
+  formatData(data){
 
+    return data
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -33,8 +41,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.hideLoading()
-    this.getTVdata(1)
+
   },
 
   /**
@@ -70,16 +77,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  onReachBottom: function () {
-
-    let pageno = this.data.pageno + 1
-    this.setData({
-      pageno: pageno
-    })
-    this.getTVdata(pageno)
-
-  },
+  }
 })
-
-

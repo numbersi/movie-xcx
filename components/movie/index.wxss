@@ -1,6 +1,5 @@
 
 .movie {
-
   font-size: 25rpx;
   text-align: center;
   padding: 0 !important;
@@ -70,3 +69,12 @@ image {
 .color-item.dark {
   color: #657180;
 } */
+.loading {
+  text-align: center;
+  height: 80rpx;
+  padding: 20rpx;
+}
+.loading image {
+  width: 100%;
+  height: 100%;
+}

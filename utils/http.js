@@ -19,7 +19,9 @@ class  HTTP{
           }
         },
         fail:(err)=>{
-
+            wx.showLoading({
+              title: '系统正在升级,请稍后访问-------'
+            })
         },
         complete:()=>{
 
